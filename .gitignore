@@ -2,6 +2,7 @@
 *.user*
 [Bb]in/
 [Oo]bj/
+packages/
 .vs/
 *.dll
 *.exe
