@@ -42,6 +42,7 @@
     <Compile Include="Models\CardPlayed.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="TrackOBot.cs" />
+    <Compile Include="IWebClient.cs" />
     <Compile Include="WebClient.cs" />
     <Compile Include="FetchOBot.cs" />
     <Compile Include="Models\PageInfo.cs" />

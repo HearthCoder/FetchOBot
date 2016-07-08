@@ -10,6 +10,16 @@
     internal class TrackOBot
     {
         private const string HistoryUrl = "https://trackobot.com/profile/history.json?username={0}&token={1}&page={2}";
+        private IWebClient webClient;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="webClient">Web client</param>
+        public TrackOBot(IWebClient webClient)
+        {
+            this.webClient = webClient;
+        }
 
         /// <summary>
         /// Load a single page of the user's game history
@@ -22,8 +32,7 @@
         {
             // Get the history JSON from the server
             string url = String.Format(TrackOBot.HistoryUrl, username, apiToken, page);
-            var webClient = new WebClient();
-            string json = await webClient.Get(url);
+            string json = await this.webClient.Get(url);
 
             // Parse the JSON
             var historyPage = JsonConvert.DeserializeObject<HistoryPage>(json);

@@ -5,7 +5,7 @@
 
     public class FetchOBot
     {
-        private TrackOBot trackOBot = new TrackOBot();
+        private TrackOBot trackOBot = new TrackOBot(new WebClient());
 
         /// <summary>
         /// Load a single page of the user's game history
