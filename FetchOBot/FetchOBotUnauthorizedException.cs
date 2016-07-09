@@ -10,7 +10,7 @@
         /// <summary>
         /// Constructor
         /// </summary>
-        public FetchOBotUnauthorizedException()
+        internal FetchOBotUnauthorizedException()
             : base("The supplied Track-o-bot credentials are invalid.")
         {
         }

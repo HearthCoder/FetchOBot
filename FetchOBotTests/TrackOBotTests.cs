@@ -26,5 +26,33 @@
             Assert.AreEqual(2, result.History.Length);
             Assert.IsNotNull(result.Meta);
         }
+
+        [TestMethod]
+        public void TestGetHistoryParseError()
+        {
+            var webClient = new MockWebClient
+            {
+                ResponseString =
+                    @"{
+                        ""history"" : 1
+                    }"
+            };
+
+            var trackOBot = new TrackOBot(webClient);
+            AggregateException caughtException = null;
+
+            try
+            {
+                var result = trackOBot.GetHistoryAsync("testUsername", "testApiToken", 2).Result;
+            }
+            catch(AggregateException ex)
+            {
+                caughtException = ex;
+            }
+
+            Assert.IsNotNull(caughtException);
+            Assert.IsTrue(caughtException.InnerException is FetchOBotParseException);
+            Assert.AreEqual(webClient.ResponseString, ((FetchOBotParseException)caughtException.InnerException).ResponseBody);
+        }
     }
 }

@@ -35,8 +35,15 @@
             string json = await this.webClient.GetAsync(url);
 
             // Parse the JSON
-            var historyPage = await JsonConvert.DeserializeObjectAsync<HistoryPage>(json);
-            return historyPage;
+            try
+            {
+                var historyPage = await JsonConvert.DeserializeObjectAsync<HistoryPage>(json);
+                return historyPage;
+            }
+            catch (JsonException ex)
+            {
+                throw new FetchOBotParseException(ex, json);
+            }
         }
     }
 }
