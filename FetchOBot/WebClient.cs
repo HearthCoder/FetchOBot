@@ -1,6 +1,7 @@
 ﻿namespace FetchOBotApi
 {
     using System;
+    using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
 
@@ -16,8 +17,21 @@
         /// <returns>Response body</returns>
         public async Task<string> Get(string url)
         {
+            // Send the request and get the response
             var client = new HttpClient();
-            string responseBody = await client.GetStringAsync(url);
+            var response = await client.GetAsync(url);
+
+            // Throw a well-known exception for unauthorized
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                throw new FetchOBotUnauthorizedException();
+            }
+
+            // Make sure the response succeeded
+            response.EnsureSuccessStatusCode();
+
+            // Return the response body
+            var responseBody = await response.Content.ReadAsStringAsync();
             return responseBody;
         }
     }
