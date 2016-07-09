@@ -11,11 +11,11 @@
     internal class WebClient : IWebClient
     {
         /// <summary>
-        /// Send a GET request and return the response body
+        /// Asynchronously send a GET request and return the response body
         /// </summary>
         /// <param name="url">Target URL</param>
         /// <returns>Response body</returns>
-        public async Task<string> Get(string url)
+        public async Task<string> GetAsync(string url)
         {
             // Send the request and get the response
             var client = new HttpClient();

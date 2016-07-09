@@ -13,6 +13,6 @@
         /// </summary>
         /// <param name="url">Target URL</param>
         /// <returns>Response body</returns>
-        Task<string> Get(string url);
+        Task<string> GetAsync(string url);
     }
 }

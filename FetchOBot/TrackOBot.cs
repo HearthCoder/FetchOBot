@@ -32,10 +32,10 @@
         {
             // Get the history JSON from the server
             string url = String.Format(TrackOBot.HistoryUrl, username, apiToken, page);
-            string json = await this.webClient.Get(url);
+            string json = await this.webClient.GetAsync(url);
 
             // Parse the JSON
-            var historyPage = JsonConvert.DeserializeObject<HistoryPage>(json);
+            var historyPage = await JsonConvert.DeserializeObjectAsync<HistoryPage>(json);
             return historyPage;
         }
     }

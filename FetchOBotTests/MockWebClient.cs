@@ -23,7 +23,7 @@
         /// </summary>
         /// <param name="url">Target URL</param>
         /// <returns>Response body</returns>
-        public Task<string> Get(string url)
+        public Task<string> GetAsync(string url)
         {
             this.LastUrl = url;
             return Task.FromResult(this.ResponseString);
