@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FetchOBot</id>
+    <version>$version$</version>
+    <title>Fetch-o-Bot</title>
+    <authors>Scott Mikula</authors>
+    <owners>Scott Mikula</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/HearthCoder/FetchOBot</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .Net library for accessing the Track-o-Bot API</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>TrackOBot Hearthstone</tags>
+  </metadata>
+</package>

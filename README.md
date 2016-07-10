@@ -1,6 +1,14 @@
 # Fetch-o-Bot
 A .Net library for accessing the Track-o-bot API
 
+## Installation
+
+You can install Fetch-o-Bot via nuget.  In Visual Studio, run the following command in the Package Manager Console:
+
+```
+Install-Package FetchOBot
+```
+
 ## Usage
 
 In an async method:
