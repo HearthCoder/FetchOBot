@@ -8,7 +8,7 @@
     public class TrackOBotTests
     {
         [TestMethod]
-        public void TestGetHistoryAsync()
+        public void TestGetHistoryPageAsync()
         {
             var webClient = new MockWebClient
             {
@@ -20,7 +20,7 @@
             };
 
             var trackOBot = new TrackOBot(webClient);
-            var result = trackOBot.GetHistoryAsync("testUsername", "testApiToken", 2).Result;
+            var result = trackOBot.GetHistoryPageAsync("testUsername", "testApiToken", 2).Result;
 
             Assert.AreEqual("https://trackobot.com/profile/history.json?username=testUsername&token=testApiToken&page=2", webClient.LastUrl);
             Assert.AreEqual(2, result.History.Length);
@@ -43,7 +43,7 @@
 
             try
             {
-                var result = trackOBot.GetHistoryAsync("testUsername", "testApiToken", 2).Result;
+                var result = trackOBot.GetHistoryPageAsync("testUsername", "testApiToken", 2).Result;
             }
             catch(AggregateException ex)
             {

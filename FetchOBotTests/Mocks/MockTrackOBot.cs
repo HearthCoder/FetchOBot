@@ -46,7 +46,7 @@
         /// <param name="apiToken">API token</param>
         /// <param name="page">Page</param>
         /// <returns>Game history</returns>
-        public Task<HistoryPage> GetHistoryAsync(string username, string apiToken, int page)
+        public Task<HistoryPage> GetHistoryPageAsync(string username, string apiToken, int page)
         {
             this.LastUsername = username;
             this.LastApiToken = apiToken;

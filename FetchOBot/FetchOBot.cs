@@ -24,9 +24,9 @@
         /// <param name="apiToken">API token</param>
         /// <param name="page">Page</param>
         /// <returns>Game history</returns>
-        public async Task<HistoryPage> GetHistoryAsync(string username, string apiToken, int page = 1)
+        public async Task<HistoryPage> GetHistoryPageAsync(string username, string apiToken, int page = 1)
         {
-            var historyPage = await this.trackOBot.GetHistoryAsync(username, apiToken, page);
+            var historyPage = await this.trackOBot.GetHistoryPageAsync(username, apiToken, page);
             return historyPage;
         }
 

@@ -28,7 +28,7 @@
         /// <param name="apiToken">API token</param>
         /// <param name="page">Page</param>
         /// <returns>Game history</returns>
-        public async Task<HistoryPage> GetHistoryAsync(string username, string apiToken, int page)
+        public async Task<HistoryPage> GetHistoryPageAsync(string username, string apiToken, int page)
         {
             // Get the history JSON from the server
             string url = String.Format(TrackOBot.HistoryUrl, username, apiToken, page);

@@ -37,7 +37,7 @@
             while (!done)
             {
                 // Load and process the next history page
-                var historyPage = await this.trackOBot.GetHistoryAsync(username, apiToken, page);
+                var historyPage = await this.trackOBot.GetHistoryPageAsync(username, apiToken, page);
                 foreach (Game game in historyPage.History)
                 {
                     // See if we've hit the end of the range

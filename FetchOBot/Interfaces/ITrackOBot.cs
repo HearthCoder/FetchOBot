@@ -15,6 +15,6 @@
         /// <param name="apiToken">API token</param>
         /// <param name="page">Page</param>
         /// <returns>Game history</returns>
-        Task<HistoryPage> GetHistoryAsync(string username, string apiToken, int page);
+        Task<HistoryPage> GetHistoryPageAsync(string username, string apiToken, int page);
     }
 }
