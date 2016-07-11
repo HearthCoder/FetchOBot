@@ -7,7 +7,7 @@
     /// <summary>
     /// A low-level implementation of the Track-o-bot web API
     /// </summary>
-    internal class TrackOBot
+    internal class TrackOBot : ITrackOBot
     {
         private const string HistoryUrl = "https://trackobot.com/profile/history.json?username={0}&token={1}&page={2}";
         private IWebClient webClient;
@@ -37,7 +37,7 @@
             // Parse the JSON
             try
             {
-                var historyPage = await JsonConvert.DeserializeObjectAsync<HistoryPage>(json);
+                var historyPage = JsonConvert.DeserializeObject<HistoryPage>(json);
                 return historyPage;
             }
             catch (JsonException ex)

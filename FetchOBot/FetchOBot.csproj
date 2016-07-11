@@ -39,11 +39,13 @@
     <Compile Include="Enums\Player.cs" />
     <Compile Include="Enums\Mode.cs" />
     <Compile Include="FetchOBotParseException.cs" />
+    <Compile Include="Interfaces\ITrackOBot.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\CardPlayed.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="HistoryAccumulator.cs" />
     <Compile Include="TrackOBot.cs" />
-    <Compile Include="IWebClient.cs" />
+    <Compile Include="Interfaces\IWebClient.cs" />
     <Compile Include="FetchOBotUnauthorizedException.cs" />
     <Compile Include="WebClient.cs" />
     <Compile Include="FetchOBot.cs" />

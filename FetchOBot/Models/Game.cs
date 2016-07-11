@@ -6,7 +6,7 @@
     public class Game
     {
         [JsonProperty(PropertyName = "id")]
-        public int Id;
+        public long Id;
 
         [JsonProperty(PropertyName = "mode")]
         public Mode Mode;
