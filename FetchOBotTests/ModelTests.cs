@@ -95,6 +95,7 @@
                 @"{
                     ""hero_deck"": null,
                     ""opponent_deck"": null,
+                    ""duration"": null,
                     ""rank"": null,
                     ""legend"": null,
                     ""note"": null
@@ -103,6 +104,7 @@
             var result = JsonConvert.DeserializeObject<Game>(json);
             Assert.AreEqual(null, result.HeroDeck);
             Assert.AreEqual(null, result.OpponentDeck);
+            Assert.AreEqual(null, result.Duration);
             Assert.AreEqual(null, result.Rank);
             Assert.AreEqual(null, result.Legend);
             Assert.AreEqual(null, result.Note);

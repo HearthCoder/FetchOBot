@@ -30,7 +30,7 @@
         public Result Result;
 
         [JsonProperty(PropertyName = "duration")]
-        public int Duration;
+        public int? Duration;
 
         [JsonProperty(PropertyName = "rank")]
         public int? Rank;
