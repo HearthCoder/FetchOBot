@@ -1,5 +1,8 @@
 # Change Log
 
+## v1.2.0
+* Fix an issue where the parser would throw an exception if the duration field was null
+
 ## v1.1.0
 * Add FetchOBot.GetHistoryRangeAsync() to retrieve a range of game history based on time or game ID
 * Rename FetchOBot.GetHistoryAsync() to FetchOBot.GetHistoryPageAsync()
