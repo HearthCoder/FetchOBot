@@ -1,5 +1,8 @@
 # Change Log
 
+## v1.3.0
+* Change enums to serialize as strings so they match Track-o-Bot's JSON
+
 ## v1.2.0
 * Fix an issue where the parser would throw an exception if the duration field was null
 
