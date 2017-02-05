@@ -33,6 +33,7 @@
             var history = new List<Game>();
             int page = 1;
             bool done = false;
+            var gameIds = new HashSet<long>();
 
             while (!done)
             {
@@ -47,8 +48,13 @@
                         break;
                     }
 
-                    // Include the game
-                    history.Add(game);
+                    // If we've already included this game, don't include it again
+                    if (!gameIds.Contains(game.Id))
+                    {
+                        // Include the game
+                        history.Add(game);
+                        gameIds.Add(game.Id);
+                    }
                 }
 
                 // Check if this was the last page

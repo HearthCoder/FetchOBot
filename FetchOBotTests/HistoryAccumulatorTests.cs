@@ -61,12 +61,25 @@
             Assert.AreEqual(3, history.Length); // First page plus first game on the second page
         }
 
+        [TestMethod]
+        public void TestDuplicatedGames()
+        {
+            var trackOBot = this.InitializeMock(3);
+            trackOBot.ReturnValues[0].History[1].Id = 100;
+            trackOBot.ReturnValues[1].History[0].Id = 100;
+            trackOBot.ReturnValues[2].History[1].Id = 101;
+            var historyAccumulator = new HistoryAccumulator(trackOBot);
+            var history = historyAccumulator.GetHistoryRangeAsync(null, null, 101, null).Result;
+            Assert.AreEqual(4, history.Length);
+        }
+
         /// <summary>
         /// Initialize the MockTrackOBot
         /// </summary>
         /// <param name="pageCount">Number of history pages</param>
         private MockTrackOBot InitializeMock(int pageCount)
         {
+            long id = 0;
             var historyPages = new HistoryPage[pageCount];
             for (int i = 0; i < pageCount; i++)
             {
@@ -74,8 +87,8 @@
                 {
                     // Each page has 2 games in it
                     History = new Game[] {
-                        new Game(),
-                        new Game()
+                        new Game { Id = id++ },
+                        new Game { Id = id++ }
                     },
                     Meta = new PageInfo
                     {
