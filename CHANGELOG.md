@@ -1,5 +1,8 @@
 # Change Log
 
+## v1.3.1
+* Fix bug in FetchOBot.GetHistoryRangeAsync() where it would on rare occasions return duplicate copies of the same game
+
 ## v1.3.0
 * Change enums to serialize as strings so they match Track-o-Bot's JSON
 
