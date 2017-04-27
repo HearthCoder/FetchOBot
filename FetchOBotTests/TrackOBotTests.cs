@@ -1,6 +1,7 @@
 ﻿namespace FetchOBotApiTests
 {
     using System;
+    using System.Net.Http;
     using FetchOBotApi;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -36,6 +37,31 @@
             trackOBot.GetHistoryPageAsync("testUsername", "testApiToken", 2).Wait();
 
             Assert.AreEqual(2, trackOBot.RequestCount);
+        }
+
+        [TestMethod]
+        public void TestHttpRequestError()
+        {
+            var webClient = new MockWebClient
+            {
+                ResponseString = ResponseJson,
+                ExceptionToThrow = new HttpRequestException()
+            };
+
+            var trackOBot = new TrackOBot(webClient);
+            AggregateException caughtException = null;
+
+            try
+            {
+                var result = trackOBot.GetHistoryPageAsync("testUsername", "testApiToken", 2).Result;
+            }
+            catch (AggregateException ex)
+            {
+                caughtException = ex;
+            }
+
+            Assert.IsNotNull(caughtException);
+            Assert.IsTrue(caughtException.InnerException is FetchOBotUnavailableException);
         }
 
         [TestMethod]

@@ -19,6 +19,11 @@
         public string LastUrl { get; set; }
 
         /// <summary>
+        /// Exception to throw
+        /// </summary>
+        public Exception ExceptionToThrow { get; set; }
+
+        /// <summary>
         /// Send a GET request and return the response body
         /// </summary>
         /// <param name="url">Target URL</param>
@@ -26,6 +31,12 @@
         public Task<string> GetAsync(string url)
         {
             this.LastUrl = url;
+
+            if (this.ExceptionToThrow != null)
+            {
+                throw this.ExceptionToThrow;
+            }
+
             return Task.FromResult(this.ResponseString);
         }
     }
