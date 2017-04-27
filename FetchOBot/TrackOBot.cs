@@ -1,6 +1,7 @@
 ﻿namespace FetchOBotApi
 {
     using System;
+    using System.Net.Http;
     using System.Threading.Tasks;
     using Newtonsoft.Json;
 
@@ -39,7 +40,16 @@
             // Get the history JSON from the server
             this.RequestCount++;
             string url = String.Format(TrackOBot.HistoryUrl, username, apiToken, page);
-            string json = await this.webClient.GetAsync(url);
+            string json;
+
+            try
+            {
+                json = await this.webClient.GetAsync(url);
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new FetchOBotUnavailableException(ex);
+            }
 
             // Parse the JSON
             try

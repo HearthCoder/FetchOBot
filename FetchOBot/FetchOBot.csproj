@@ -38,6 +38,7 @@
     <Compile Include="Enums\Hero.cs" />
     <Compile Include="Enums\Player.cs" />
     <Compile Include="Enums\Mode.cs" />
+    <Compile Include="FetchOBotUnavailableException.cs" />
     <Compile Include="FetchOBotParseException.cs" />
     <Compile Include="Interfaces\ITrackOBot.cs" />
     <Compile Include="Models\Card.cs" />
