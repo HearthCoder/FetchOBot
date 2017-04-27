@@ -18,6 +18,14 @@
         }
 
         /// <summary>
+        /// Total number of requests made
+        /// </summary>
+        public int RequestCount
+        {
+            get { return this.trackOBot.RequestCount; }
+        }
+
+        /// <summary>
         /// Asynchronously load a single page of the user's game history
         /// </summary>
         /// <param name="username">Track-o-bot username</param>

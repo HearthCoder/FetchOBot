@@ -19,7 +19,13 @@
         public TrackOBot(IWebClient webClient)
         {
             this.webClient = webClient;
+            this.RequestCount = 0;
         }
+
+        /// <summary>
+        /// Number of requests this TrackOBot has made
+        /// </summary>
+        public int RequestCount { get; private set; }
 
         /// <summary>
         /// Load a single page of the user's game history
@@ -31,6 +37,7 @@
         public async Task<HistoryPage> GetHistoryPageAsync(string username, string apiToken, int page)
         {
             // Get the history JSON from the server
+            this.RequestCount++;
             string url = String.Format(TrackOBot.HistoryUrl, username, apiToken, page);
             string json = await this.webClient.GetAsync(url);
 
